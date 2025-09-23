@@ -1,12 +1,12 @@
 from pprint import pprint
 
 def PSC(s: str) -> int:
-    n = len(s)
+    
+    t = ''.join(ch.lower() for ch in s if ch.isalpha())
+    n = len(t)
     if n == 0:
         print("String vacío -> 0")
         return 0
-
-    t = s.lower()
 
     # M[i][j] = P(i,j). Iniciamos todo en 0 y ponemos la diagonal en 1.
     M = [[0 for _ in range(n)] for _ in range(n)]
@@ -27,7 +27,7 @@ def PSC(s: str) -> int:
 
     total = M[0][n-1]
     print(f"String: {s!r} | Total subsecuencias palíndromas = {total}")
-    pprint(M, width=120)
+    # pprint(M, width=120)
     return total
 
 if __name__ == "__main__":
@@ -35,3 +35,26 @@ if __name__ == "__main__":
     PSC("panaa")    # 11
     PSC("lana")     # 6
     PSC("aro")      # 3
+
+    #Primera estrofa del himno nacional de locombia
+    PSC(
+        """
+        Cesó la horrible noche
+        La libertad sublime
+        Derrama las auroras
+        De su invencible luz
+        La humanidad entera
+        Que entre cadenas gime
+        Comprende las palabras
+        Del que murió en la cruz
+        """
+    )
+    # Coro
+    PSC(
+        """
+        Oh gloria inmarcesible 
+        Oh júbilo inmortal 
+        En surcos de dolores 
+        El bien germina ya. 
+        """
+    )
