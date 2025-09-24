@@ -1,3 +1,4 @@
+# Autores: Katheryn Guasca y Simón Díaz 
 from pprint import pprint
 
 def PSC(s: str) -> int:
@@ -26,35 +27,37 @@ def PSC(s: str) -> int:
                 M[i][j] = M[i+1][j] + M[i][j-1] - cross
 
     total = M[0][n-1]
-    print(f"String: {s!r} | Total subsecuencias palíndromas = {total}")
+    print(f"String = {s}")
+    print(f"Total subsecuencias palíndromas = {total}\n")
     # pprint(M, width=120)
     return total
 
 if __name__ == "__main__":
-    PSC("Amapola")  # esperado (case-insensitive): 19
-    PSC("panaa")    # 11
-    PSC("lana")     # 6
-    PSC("aro")      # 3
+    #Pruebas Escritura algoritmo
+    # PSC("panaa")    # 11
+    # PSC("lana")     # 6
+    # PSC("aro")      # 3
 
-    #Primera estrofa del himno nacional de locombia
-    PSC(
-        """
-        Cesó la horrible noche
-        La libertad sublime
-        Derrama las auroras
-        De su invencible luz
-        La humanidad entera
-        Que entre cadenas gime
-        Comprende las palabras
-        Del que murió en la cruz
-        """
-    )
+    PrimeraEstrofa = """ 
+    ¡Cesó la horrible noche!
+    La libertad sublime
+    Derrama las auroras
+    De su invencible luz.
+    La humanidad entera,
+    Que entre cadenas gime,
+    Comprende las palabras
+    Del que murió en la cruz.
+    """
+    Coro = """
+    Oh gloria inmarcesible 
+    Oh júbilo inmortal 
+    En surcos de dolores 
+    El bien germina ya. 
+    """
+
+    #Primera estrofa del himno nacional de Colombia
+    PSC(PrimeraEstrofa)
     # Coro
-    PSC(
-        """
-        Oh gloria inmarcesible 
-        Oh júbilo inmortal 
-        En surcos de dolores 
-        El bien germina ya. 
-        """
-    )
+    PSC(Coro)
+    #Primera Estrofa + Coro
+    PSC(PrimeraEstrofa + Coro)
