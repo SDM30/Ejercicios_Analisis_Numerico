@@ -1,5 +1,5 @@
 # Autores: Katheryn Guasca y Simón Díaz 
-from pprint import pprint
+import sys
 
 def PSC(s: str) -> int:
     
@@ -29,15 +29,10 @@ def PSC(s: str) -> int:
     total = M[0][n-1]
     print(f"String = {s}")
     print(f"Total subsecuencias palíndromas = {total}\n")
-    # pprint(M, width=120)
     return total
 
-if __name__ == "__main__":
-    #Pruebas Escritura algoritmo
-    # PSC("panaa")    # 11
-    # PSC("lana")     # 6
-    # PSC("aro")      # 3
-
+def main (option):
+    
     PrimeraEstrofa = """ 
     ¡Cesó la horrible noche!
     La libertad sublime
@@ -54,10 +49,31 @@ if __name__ == "__main__":
     En surcos de dolores 
     El bien germina ya. 
     """
+    
+    input = option.strip().lower() if (option is not None) else None
+    
+    if  input == "prueba":
+        #Pruebas Escritura algoritmo
+        PSC("panaa")    # 11
+        PSC("lana")     # 6
+        PSC("aro")      # 3
+    else:
+        #Primera estrofa del himno nacional de Colombia
+        PSC(PrimeraEstrofa)
+        # Coro
+        PSC(Coro)
+        #Primera Estrofa + Coro
+        PSC(PrimeraEstrofa + Coro)
+        
 
-    #Primera estrofa del himno nacional de Colombia
-    PSC(PrimeraEstrofa)
-    # Coro
-    PSC(Coro)
-    #Primera Estrofa + Coro
-    PSC(PrimeraEstrofa + Coro)
+if __name__ == "__main__":
+    arg1=""
+    if len(sys.argv) == 2:
+        arg1 = sys.argv[1]
+        main(arg1)
+    elif len(sys.argv) == 1:
+        main(None)
+    else:
+        print("Uso (Opcion 1): python PSC.py prueba (pruebas colocadas en la escritura del algoritmo)\nUso (Opcion 2): python PSC.py (Pruebas con la primera estofa y coro)")
+
+        
