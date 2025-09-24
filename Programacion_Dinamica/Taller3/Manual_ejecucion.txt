@@ -1,0 +1,2 @@
+Uso (Opcion 1): python PSC.py prueba (pruebas colocadas en la escritura del algoritmo)
+Uso (Opcion 2): python PSC.py (Pruebas con la primera estofa y coro)
